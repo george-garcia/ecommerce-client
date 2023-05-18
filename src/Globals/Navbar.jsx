@@ -1,12 +1,18 @@
 "use client"
 import { useDispatch, useSelector} from "react-redux";
+import {useState} from "react";
 
 import Link from "next/link";
 import {setIsCartOpen} from "@/state";
+import dynamic from "next/dynamic";
+const CartMenu = dynamic(() => import('@/Globals/CartMenu'), {ssr: false});
+
+// import CartMenu from "@/Globals/CartMenu";
 
 export default function Navbar() {
     const dispatch = useDispatch();
     const cart = useSelector((state) => state.cart.cart);
+    const [isOpen, setIsOpen] = useState(true);
 
     return (
         <div className={'flex items-center w-full h-16 bg-green-400 text-black z-10'}>
@@ -19,6 +25,8 @@ export default function Navbar() {
                     <button>4</button>
                 </div>
             </div>
+            {isOpen && <CartMenu/>}
+            {/*<CartMenu/>*/}
         </div>
     );
 
