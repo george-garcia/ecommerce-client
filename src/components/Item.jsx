@@ -3,9 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
 import { addToCart, decreaseCount, increaseCount } from "@/state";
-import Image from "next/image";
 import { MdAdd, MdRemove } from "react-icons/md";
-import img from "@/assets/toa-heftiba-dti56waifB4-unsplash.jpeg";
 
 export default function Item({ item, width }) {
   const router = useRouter();
@@ -33,20 +31,13 @@ export default function Item({ item, width }) {
         onMouseOver={() => setIsHovered(true)}
         onMouseOut={() => setIsHovered(false)}
       >
-        {/*<Image*/}
-        {/*  className={"cursor-pointer"}*/}
-        {/*  src={`http://localhost:1337/uploads/medium_andreea_chidu_FPV_2_Fb_N_Ho_E_unsplash_d0086891e1.jpeg`}*/}
-        {/*  // src={`http://localhost:1337${url}`}*/}
-        {/*  width={300}*/}
-        {/*  height={400}*/}
-        {/*  alt={item.name}*/}
-        {/*  onClick={() => router.push(`/item/${item.id}`)}*/}
-        {/*/>*/}
         <img
+          className={"cursor-pointer"}
           src={`http://localhost:1337${url}`}
           width={300}
           height={400}
-          alt=""
+          alt={item.name}
+          onClick={() => router.push(`/item/${item.id}`)}
         />
         {/*{`${category}-${price}-${name}-${url}`}*/}
         <div
@@ -60,13 +51,13 @@ export default function Item({ item, width }) {
           }}
         >
           <div className="flex justify-between text-lg">
-            <div className="flex items-center bg-red-500 rounded">
+            <div className="flex items-center bg-white rounded gap-1 py-1 px-2 border-solid border-zinc-800 border-2 ">
               <MdRemove onClick={() => setCount(Math.max(count - 1, 1))} />
               <h3>{count}</h3>
               <MdAdd onClick={() => setCount(count + 1)} />
             </div>
             <button
-              className={"bg-white"}
+              className={"bg-zinc-600 text-zinc-100 py-1 px-2 rounded"}
               onClick={() => {
                 dispatch(addToCart({ item: { ...item, count } }));
               }}

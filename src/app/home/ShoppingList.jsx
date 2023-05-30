@@ -47,7 +47,7 @@ export default function ShoppingList() {
       <h3 className="text-center">
         Our Featured <b>Products</b>
       </h3>
-      <div className={"flex justify-center"}>
+      <div className={"text-center"}>
         <Tabs.Root className={""} defaultValue={"ALL"}>
           <Tabs.List
             aria-label="products tabs"
@@ -66,33 +66,62 @@ export default function ShoppingList() {
               );
             })}
           </Tabs.List>
-          <div
-            className={"mx-auto my-0 grid justify-around"}
-            style={{
-              gridTemplateColumns: "repeat(auto-fill, 300px)",
-              rowGap: "20px",
-              columnGap: "1.33%",
-            }}
-          >
-            <Tabs.Content value="ALL" forceMount={true}>
+          <div>
+            <Tabs.Content
+              value="ALL"
+              forceMount={true}
+              className={"justify-around grid"}
+              style={{
+                gridTemplateColumns: "repeat(auto-fill, 300px)",
+                rowGap: "20px",
+                columnGap: "1.33%",
+              }}
+            >
               {value === "all" &&
                 items.map((item) => (
                   <Item item={item} key={`${item.name}-${item.id}`} />
                 ))}
             </Tabs.Content>
-            <Tabs.Content value="NEW ARRIVALS" forceMount={true}>
+            <Tabs.Content
+              value="NEW ARRIVALS"
+              forceMount={true}
+              className={"justify-around grid"}
+              style={{
+                gridTemplateColumns: "repeat(auto-fill, 300px)",
+                rowGap: "20px",
+                columnGap: "1.33%",
+              }}
+            >
               {value === "newArrivals" &&
                 newArrivalsItems.map((item) => (
                   <Item item={item} key={`${item.name}-${item.id}`} />
                 ))}
             </Tabs.Content>
-            <Tabs.Content value="BEST SELLERS" forceMount={true}>
+            <Tabs.Content
+              value="BEST SELLERS"
+              forceMount={true}
+              className={"justify-around grid"}
+              style={{
+                gridTemplateColumns: "repeat(auto-fill, 300px)",
+                rowGap: "20px",
+                columnGap: "1.33%",
+              }}
+            >
               {value === "bestSellers" &&
                 bestSellersItems.map((item) => (
                   <Item item={item} key={`${item.name}-${item.id}`} />
                 ))}
             </Tabs.Content>
-            <Tabs.Content value="TOP RATED" forceMount={true}>
+            <Tabs.Content
+              value="TOP RATED"
+              forceMount={true}
+              className={"justify-around grid"}
+              style={{
+                gridTemplateColumns: "repeat(auto-fill, 300px)",
+                rowGap: "20px",
+                columnGap: "1.33%",
+              }}
+            >
               {value === "topRated" &&
                 topRatedItems.map((item) => (
                   <Item item={item} key={`${item.name}-${item.id}`} />
